@@ -35,7 +35,7 @@ export default function AboutSection({ background }: { background: string }) {
             <h2 className="text-3xl font-bold text-navy-blue mb-4">
               ✈ Our Story
             </h2>
-            <p className="text-gray-700 leading-relaxed space-y-2 text-lg">
+            <p className="text-gray-700 leading-relaxed space-y-2 text-md xs:text-lg">
               At <strong>Vortex Wings Aviation Institute</strong>, our journey
               took off with a simple yet powerful vision — to make quality pilot
               training more accessible, supportive, and inspiring for aspiring

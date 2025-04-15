@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   BookOpen,
@@ -31,7 +32,7 @@ const cockpitSteps = [
   },
 ];
 
-const STEP_DELAY = 0.6; // seconds between each step
+const STEP_DELAY = 0.6;
 
 const TimelineStep = ({
   step,
@@ -47,12 +48,10 @@ const TimelineStep = ({
     transition={{ delay: (index + 0.5) * STEP_DELAY }}
     className="relative flex items-start gap-6"
   >
-    {/* Icon bubble */}
     <div className="z-10 flex flex-col items-center relative">
       <div className="rounded-full bg-golden p-2 shadow-md">{step.icon}</div>
     </div>
 
-    {/* Info Card */}
     <motion.div
       whileHover={{
         scale: 1.02,
@@ -76,6 +75,21 @@ export default function PathToCockpitTimeline({
 }: {
   background: string;
 }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [containerHeight, setContainerHeight] = useState(0);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (containerRef.current) {
+        setContainerHeight(containerRef.current.offsetHeight);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
   return (
     <section
       id="path-to-cockpit"
@@ -92,6 +106,7 @@ export default function PathToCockpitTimeline({
 
         {/* Timeline container with vertical line */}
         <motion.div
+          ref={containerRef}
           className="relative mt-12 pl-6"
           initial="hidden"
           whileInView="visible"
@@ -102,8 +117,8 @@ export default function PathToCockpitTimeline({
             variants={{
               hidden: { y: 0, opacity: 1 },
               visible: {
-                y: `calc(${cockpitSteps.length * 6}rem + 1.2rem)`,
-                opacity: 1, // stays visible during the entire animation
+                y: containerHeight,
+                opacity: 1,
               },
             }}
             transition={{
@@ -111,7 +126,7 @@ export default function PathToCockpitTimeline({
               ease: "linear",
             }}
             className="absolute z-20"
-            style={{ left: "24px" }} // slightly adjusted for center alignment with increased size
+            style={{ left: "24px" }}
             onAnimationComplete={(def) => {
               if (def === "visible") {
                 const el = document.querySelector(
@@ -135,9 +150,7 @@ export default function PathToCockpitTimeline({
           <motion.div
             variants={{
               hidden: { height: 0 },
-              visible: {
-                height: `calc(${cockpitSteps.length * 6}rem + 1.2rem)`,
-              },
+              visible: { height: containerHeight },
             }}
             transition={{
               duration: STEP_DELAY * cockpitSteps.length,
