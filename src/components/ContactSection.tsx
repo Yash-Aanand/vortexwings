@@ -46,7 +46,7 @@ export default function ContactSection({ background }: { background: string }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 sm:p-12 max-w-lg mx-auto border-2 border-navy-blue/10 hover:border-golden/50 transition-all duration-300"
+          className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl  p-8 sm:p-12 max-w-lg mx-auto border-2 border-navy-blue/10 hover:border-golden/50 transition-all duration-300"
           style={{
             backgroundImage: `url(${cloud1})`,
             backgroundSize: "cover",
