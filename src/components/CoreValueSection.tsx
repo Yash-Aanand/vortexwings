@@ -1,6 +1,21 @@
 import { motion } from "framer-motion";
 import { Shield, Users, BookOpen, Award, Target, Rocket } from "lucide-react";
-import SectionTitle from "./sectionTitle"; // adjust path if needed
+import SectionTitle from "./sectionTitle";
+
+// Animation Variants
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
 
 const coreValues = [
   {
@@ -51,6 +66,7 @@ const CoreValue = ({
   description: string;
 }) => (
   <motion.div
+    variants={cardVariants}
     whileHover={{
       scale: 1.03,
       rotateX: 3,
@@ -74,7 +90,7 @@ const CoreValue = ({
       </div>
       <div>
         <h4 className="text-lg font-semibold text-navy-blue">{title}</h4>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-md text-gray-700">{description}</p>
       </div>
     </div>
   </motion.div>
@@ -88,7 +104,7 @@ export default function CoreValuesSection({
   return (
     <section
       id="core-values"
-      className="min-h-screen py-24 px-6"
+      className="py-24 px-6"
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
@@ -105,7 +121,15 @@ export default function CoreValuesSection({
       >
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
           <SectionTitle>Core Values</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Fade-in staggered grid */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {coreValues.map((value, index) => (
               <CoreValue
                 key={index}
@@ -114,7 +138,7 @@ export default function CoreValuesSection({
                 description={value.description}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
 import SectionTitle from "./sectionTitle";
 import cloud1 from "../images/cloud1.jpg";
 
@@ -76,6 +76,77 @@ export default function ContactSection({ background }: { background: string }) {
             <Mail className="h-5 w-5 md:h-8 md:w-8" />
             <span>Contact Us</span>
           </motion.a>
+
+          {/* Contact Info */}
+          <div className="mt-6">
+            <div className="inline-block bg-black/30 backdrop-blur-lg px-4 py-4 rounded-lg border border-white/20 shadow-md mx-auto space-y-3 text-white text-xs md:text-base w-full max-w-sm md:max-w-md">
+              {/* Admissions */}
+              <div className="flex items-center space-x-2 md:space-x-3">
+                <div className="bg-white/20 p-1.5 md:p-2 rounded-full">
+                  <Phone className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                </div>
+                <div>
+                  <a
+                    href="tel:+91 9327157106"
+                    className="text-white/80 hover:underline"
+                  >
+                    +91 9327157106
+                  </a>
+                </div>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="flex items-center space-x-2 md:space-x-3">
+                <div className="bg-white/20 p-1.5 md:p-2 rounded-full">
+                  <Phone className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                </div>
+                <div>
+                  <a
+                    href="tel:+91 7022906489"
+                    className="text-white/80 hover:underline"
+                  >
+                    +91 7022906489
+                  </a>
+                </div>
+              </div>
+
+              {/* Office */}
+              <div className="flex items-center space-x-2 md:space-x-3">
+                <div className="bg-white/20 p-1.5 md:p-2 rounded-full">
+                  <Phone className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                </div>
+                <div>
+                  <a
+                    href="tel:+91 9597191209"
+                    className="text-white/80 hover:underline"
+                  >
+                    +91 9597191209
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center space-x-2 md:space-x-3 pt-2 border-t border-white/20">
+                <div className="bg-white/20 p-1.5 md:p-2 rounded-full">
+                  <Mail className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                </div>
+                <div>
+                  <a
+                    href="mailto:vortexwingsinst@gmail.com"
+                    className="text-white/80 hover:underline"
+                  >
+                    <span className="inline-flex flex-wrap gap-0">
+                      {"vortexwingsinst@gmail.com"
+                        .split("")
+                        .map((char, index) => (
+                          <span key={index}>{char}</span>
+                        ))}
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Stats Section */}

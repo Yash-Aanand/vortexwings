@@ -12,6 +12,21 @@ import {
 } from "lucide-react";
 import SectionTitle from "./sectionTitle";
 
+// Animation Variants
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
 const services = [
   {
     icon: GraduationCap,
@@ -65,7 +80,7 @@ const services = [
   {
     icon: HelpCircle,
     title: "Doubt-Clearing Sessions",
-    tagline: "No Doubt Left Behind.",
+    tagline: "No Doubts Left Behind.",
     description:
       "Weekly sessions to clear confusion and build strong concepts—every question matters.",
   },
@@ -103,15 +118,26 @@ export default function ServicesSection({
       >
         <div className="bg-white rounded-2xl shadow-2xl p-10">
           <SectionTitle>Our Services</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+          {/* Grid with staggered animation */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          >
             {services.map((service, index) => (
               <motion.div
                 key={index}
+                variants={cardVariants}
                 whileHover={{
-                  scale: 1.015,
-                  boxShadow: "0px 12px 30px rgba(0, 0, 0, 0.08)",
+                  scale: 1.03,
+                  rotateX: 3,
+                  rotateY: -3,
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
                 }}
-                transition={{ type: "spring", stiffness: 250, damping: 20 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="relative border-l-4 border-golden bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
               >
                 <div className="absolute -top-5 left-4 bg-yellow-100 text-yellow-800 rounded-full p-2 shadow-md">
@@ -119,19 +145,19 @@ export default function ServicesSection({
                 </div>
 
                 <div className="pl-2 pt-4">
-                  <h3 className="text-lg font-bold text-navy-blue mb-1">
+                  <h3 className="text-xl font-bold text-navy-blue mb-1">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-yellow-700 font-medium mb-2 italic">
+                  <p className="text-md text-yellow-700 font-medium mb-2 italic">
                     {service.tagline}
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <p className="text-md text-gray-700 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

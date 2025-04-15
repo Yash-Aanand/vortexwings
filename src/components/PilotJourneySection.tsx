@@ -1,37 +1,58 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import {
+  BookOpen,
+  FileText,
+  Plane,
+  Briefcase,
+  ClipboardCheck,
+} from "lucide-react";
 import SectionTitle from "./sectionTitle";
 
-const pilotJourneySteps = [
-  "Class 2 Medical Examination",
-  "Class 1 Medical Examination Initial",
-  "Computer Number",
-  "Ground Classes",
-  "Flight Training",
-  "Conversion of License",
-  "Apply for Medical Clearance",
-  "Police Verification",
-  "Approval of Medical",
-  "Flight Checks",
-  "Completion of Checks",
-  "Apply for Conversion of License on EGCA",
+const cockpitSteps = [
+  {
+    title: "Enroll & start classes",
+    icon: <BookOpen className="w-6 h-6 text-navy-blue" />,
+  },
+  {
+    title: "Build strong theoretical foundation",
+    icon: <FileText className="w-6 h-6 text-navy-blue" />,
+  },
+  {
+    title: "Pass DGCA exams",
+    icon: <Plane className="w-6 h-6 text-navy-blue" />,
+  },
+  {
+    title: "Complete flight training",
+    icon: <Briefcase className="w-6 h-6 text-navy-blue" />,
+  },
+  {
+    title: "Crack airline interviews",
+    icon: <ClipboardCheck className="w-6 h-6 text-navy-blue" />,
+  },
 ];
 
-const PilotJourneyStep = ({
+const STEP_DELAY = 0.6; // seconds between each step
+
+const TimelineStep = ({
   step,
   index,
-  total,
 }: {
-  step: string;
+  step: { title: string; icon: JSX.Element };
   index: number;
-  total: number;
 }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: index * 0.08 }}
-    className="relative group flex flex-col sm:flex-row items-center gap-4"
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: (index + 0.5) * STEP_DELAY }}
+    className="relative flex items-start gap-6"
   >
+    {/* Icon bubble */}
+    <div className="z-10 flex flex-col items-center relative">
+      <div className="rounded-full bg-golden p-2 shadow-md">{step.icon}</div>
+    </div>
+
+    {/* Info Card */}
     <motion.div
       whileHover={{
         scale: 1.02,
@@ -43,33 +64,22 @@ const PilotJourneyStep = ({
       <div className="absolute -left-2 -top-2 bg-golden text-white text-xs px-3 py-1 rounded-full shadow-sm font-semibold tracking-wide">
         Step {index + 1}
       </div>
-      <h3 className="text-base sm:text-lg font-[Times_New_Roman] tracking-wide">
-        {step}
+      <h3 className="text-base sm:text-xl font-[Times_New_Roman] tracking-wide">
+        {step.title}
       </h3>
     </motion.div>
-
-    {index < total - 1 && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: index * 0.08 + 0.1 }}
-        className="rotate-90 sm:rotate-0 group-hover:scale-110 transition-transform"
-      >
-        <ArrowRight className="h-6 w-6 text-golden drop-shadow-sm" />
-      </motion.div>
-    )}
   </motion.div>
 );
 
-export default function PilotJourneySection({
+export default function PathToCockpitTimeline({
   background,
 }: {
   background: string;
 }) {
   return (
     <section
-      id="pilot-journey"
-      className="min-h-screen py-24 px-6"
+      id="path-to-cockpit"
+      className="py-24 px-4 sm:px-8"
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
@@ -77,26 +87,77 @@ export default function PilotJourneySection({
         backgroundRepeat: "no-repeat",
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-7xl mx-auto"
-      >
-        <div className="rounded-2xl shadow-xl p-10 border border-gray-200 bg-white/90 backdrop-blur-sm">
-          <SectionTitle>Your Journey to Becoming a Pilot</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
-            {pilotJourneySteps.map((step, index) => (
-              <PilotJourneyStep
-                key={index}
-                step={step}
-                index={index}
-                total={pilotJourneySteps.length}
-              />
+      <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur-sm border border-gray-200 shadow-xl rounded-2xl p-8 sm:p-12">
+        <SectionTitle>Your Path to the Cockpit</SectionTitle>
+
+        {/* Timeline container with vertical line */}
+        <motion.div
+          className="relative mt-12 pl-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {/* Plane flying down */}
+          <motion.div
+            variants={{
+              hidden: { y: 0, opacity: 1 },
+              visible: {
+                y: `calc(${cockpitSteps.length * 6}rem + 1.2rem)`,
+                opacity: 1, // stays visible during the entire animation
+              },
+            }}
+            transition={{
+              duration: STEP_DELAY * cockpitSteps.length,
+              ease: "linear",
+            }}
+            className="absolute z-20"
+            style={{ left: "24px" }} // slightly adjusted for center alignment with increased size
+            onAnimationComplete={(def) => {
+              if (def === "visible") {
+                const el = document.querySelector(
+                  "#animated-plane"
+                ) as HTMLElement;
+                if (el) el.style.display = "none";
+              }
+            }}
+          >
+            <Plane
+              id="animated-plane"
+              className="w-10 h-10 text-golden transition-all duration-300"
+              style={{
+                transform: "rotate(135deg)",
+                display: "block",
+              }}
+            />
+          </motion.div>
+
+          {/* Vertical line */}
+          <motion.div
+            variants={{
+              hidden: { height: 0 },
+              visible: {
+                height: `calc(${cockpitSteps.length * 6}rem + 1.2rem)`,
+              },
+            }}
+            transition={{
+              duration: STEP_DELAY * cockpitSteps.length,
+              ease: "linear",
+            }}
+            className="absolute top-0 bg-golden z-0"
+            style={{
+              left: "42px",
+              width: "4px",
+            }}
+          />
+
+          {/* Steps */}
+          <div className="space-y-12 relative z-10">
+            {cockpitSteps.map((step, index) => (
+              <TimelineStep key={index} step={step} index={index} />
             ))}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

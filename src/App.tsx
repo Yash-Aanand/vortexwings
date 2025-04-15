@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/OurServicesSection";
+import OurSubjucts from "./components/OurSubjectSection";
 import CoreValueSection from "./components/CoreValueSection";
 import PilotJourneySection from "./components/PilotJourneySection";
 import ContactSection from "./components/ContactSection";
@@ -14,6 +15,7 @@ import cockpit from "./images/cockpit.jpg";
 import plane2 from "./images/plane2.jpg";
 import plane1 from "./images/plane1.jpg";
 import cockpit2 from "./images/cockpit2.jpg";
+import cockpit3 from "./images/cockpit3.jpg";
 
 // import fractalbg1 from "./images/fractalbg1.jpg";
 
@@ -36,6 +38,9 @@ function App() {
       <CoreValueSection background={plane2} />
       {/* Services Section */}
       <ServicesSection background={cockpit} />
+
+      {/* Subjects Section */}
+      <OurSubjucts background={cockpit3} />
 
       {/* Pilot Journey Section */}
       <PilotJourneySection background={plane1} />

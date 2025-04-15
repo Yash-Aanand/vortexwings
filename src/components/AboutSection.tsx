@@ -35,7 +35,7 @@ export default function AboutSection({ background }: { background: string }) {
             <h2 className="text-3xl font-bold text-navy-blue mb-4">
               ✈ Our Story
             </h2>
-            <p className="text-gray-700 leading-relaxed space-y-2">
+            <p className="text-gray-700 leading-relaxed space-y-2 text-lg">
               At <strong>Vortex Wings Aviation Institute</strong>, our journey
               took off with a simple yet powerful vision — to make quality pilot
               training more accessible, supportive, and inspiring for aspiring
@@ -72,7 +72,7 @@ export default function AboutSection({ background }: { background: string }) {
               <h3 className="text-2xl font-bold text-navy-blue mb-4">
                 Our Vision
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-lg">
                 To be recognized for our unwavering dedication to safety,
                 innovation, and student success. We aim to create a supportive
                 and dynamic learning environment that fosters creativity,
@@ -104,7 +104,7 @@ export default function AboutSection({ background }: { background: string }) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center space-x-3"
+                    className="flex items-center space-x-3 text-lg"
                   >
                     <CheckCircle2 className="h-6 w-6 text-golden flex-shrink-0" />
                     <span className="text-gray-700">{item}</span>

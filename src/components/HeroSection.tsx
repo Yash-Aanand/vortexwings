@@ -46,7 +46,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         transition={{ delay: 0.35 }}
         className="text-xl md:text-3xl text-gray-600 max-w-2xl mb-10"
       >
-        Empowering Future Aviation Leaders with Excellence in Training
+        Lift Your Confidence. Command the Skies
       </motion.p>
 
       {/* CTA */}

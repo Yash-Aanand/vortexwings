@@ -31,8 +31,8 @@ const Navbar = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <Plane className="h-10 w-10 text-navy-blue transform group-hover:rotate-12 transition-transform duration-300" />
-          <span className="text-2xl font-bold text-navy-blue group-hover:text-navy-blue/80 transition-colors duration-300">
+          {/* <Plane className="h-10 w-10 text-navy-blue transform group-hover:rotate-12 transition-transform duration-300" /> */}
+          <span className="text-3xl font-bold text-navy-blue group-hover:text-navy-blue/80 transition-colors duration-300">
             Vortex Wings
           </span>
         </motion.button>
