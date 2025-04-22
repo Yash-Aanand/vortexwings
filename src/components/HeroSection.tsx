@@ -34,7 +34,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="text-5xl md:text-7xl font-bold text-navy-blue mb-6"
+        className="text-5xl md:text-7xl font-bold text-navy-blue mb-4 sm:mb-6"
       >
         Vortex Wings
       </motion.h1>
@@ -43,7 +43,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="text-3xl md:text-5xl font-bold text-navy-blue mb-6 "
+        className="text-3xl md:text-5xl font-bold text-navy-blue mb-4 sm:mb-6 "
       >
         Aviation Institute
       </motion.div>
@@ -53,7 +53,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
-        className="text-xl md:text-3xl text-gray-600 max-w-2xl mb-10"
+        className="text-xl md:text-3xl text-gray-600 max-w-2xl mb-3 sm:mb-10"
       >
         Lift Your Confidence. Command the Skies
       </motion.p>
