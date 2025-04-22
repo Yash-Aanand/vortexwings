@@ -13,11 +13,17 @@ const sections = [
       { id: "about", label: "Our Story" },
       { id: "vision", label: "Our Vision/Mission" },
       { id: "core-values", label: "Core Values" },
-      { id: "pilot-journey", label: "Pilot Journey" },
     ],
   },
-  { id: "services", label: "Services" },
-  { id: "subjects", label: "Courses" },
+  {
+    id: "flight-deck",
+    label: "Flight Deck",
+    submenu: [
+      { id: "pilot-journey", label: "Pilot Journey" },
+      { id: "services", label: "Services" },
+      { id: "subjects", label: "Courses" },
+    ],
+  },
   { id: "contact", label: "Contact Us" },
 ];
 
