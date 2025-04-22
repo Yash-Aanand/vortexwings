@@ -35,10 +35,11 @@ export default function ContactSection({ background }: { background: string }) {
           transition={{ delay: 0.3 }}
           className="text-xl md:text-2xl text-white mb-4"
         >
-          Your Gateway to Aviation Excellence
+          Your Gateway to Becoming a Professional Aviator
         </motion.p>
         <p className="text-white/80 mb-8 text-md md:text-base">
-          Ready to elevate your journey? Reach out and let’s help you soar.
+          Start your flight journey with expert mentorship and
+          unwavering support.{" "}
         </p>
 
         <motion.div
