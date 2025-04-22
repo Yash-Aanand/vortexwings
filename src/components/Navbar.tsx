@@ -17,8 +17,8 @@ const sections = [
     ],
   },
   { id: "services", label: "Services" },
-  { id: "subjects", label: "Subjects" },
-  { id: "contact", label: "Contact" },
+  { id: "subjects", label: "Courses" },
+  { id: "contact", label: "Contact Us" },
 ];
 
 const Navbar = () => {
@@ -60,14 +60,14 @@ const Navbar = () => {
         </motion.button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
           {sections.map((item) => (
             <div key={item.id} className="relative group">
               <button
                 onClick={() => scrollToSection(item.id)}
                 className="relative group capitalize"
               >
-                <span className="text-gray-600 group-hover:text-navy-blue transition-colors duration-300">
+                <span className="text-gray-600 group-hover:text-navy-blue uppercase transition-colors duration-300">
                   {item.label}
                 </span>
                 <motion.div
@@ -83,7 +83,7 @@ const Navbar = () => {
                     <button
                       key={sub.id}
                       onClick={() => scrollToSection(sub.id)}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-navy-blue/10 hover:text-navy-blue transition-all"
+                      className="w-full text-left px-4 py-2 text-sm text-gray-700 uppercase hover:bg-navy-blue/10 hover:text-navy-blue transition-all"
                     >
                       {sub.label}
                     </button>
@@ -123,7 +123,7 @@ const Navbar = () => {
                         onClick={() =>
                           setOpenDropdown(isOpenDropdown ? null : item.id)
                         }
-                        className="flex justify-between items-center w-full text-gray-600 hover:text-navy-blue transition-colors duration-300 capitalize py-2"
+                        className="flex justify-between items-center w-full uppercase text-gray-600 hover:text-navy-blue transition-colors duration-300  py-2"
                       >
                         {item.label}
                         <ChevronDown
@@ -146,7 +146,7 @@ const Navbar = () => {
                               <button
                                 key={sub.id}
                                 onClick={() => scrollToSection(sub.id)}
-                                className="block w-full text-left text-gray-600 hover:text-navy-blue py-1 text-md"
+                                className="block w-full text-left text-gray-600 uppercase hover:text-navy-blue py-1 text-md"
                               >
                                 {sub.label}
                               </button>
@@ -162,7 +162,7 @@ const Navbar = () => {
                   <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-gray-600 hover:text-navy-blue transition-colors duration-300 capitalize w-full text-left py-2"
+                    className="text-gray-600 hover:text-navy-blue transition-colors duration-300 uppercase w-full text-left py-2"
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
