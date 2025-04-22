@@ -142,7 +142,7 @@ export default function ServicesSection({
                 </div>
 
                 <div className="pl-2 pt-4">
-                  <h3 className="text-xl font-bold text-navy-blue mb-1">
+                  <h3 className="text-xl font-bold uppercase text-navy-blue mb-1">
                     {service.title}
                   </h3>
                   <p className="text-sm text-yellow-700 font-medium mb-2 italic">
