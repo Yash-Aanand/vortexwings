@@ -9,7 +9,8 @@ import Footer from "../components/Footer";
 import mainlogo from "../images/vortexlogotr.png";
 import plane1 from "../images/plane1.jpg";
 import plane2 from "../images/plane2.jpg";
-import cockpit from "../images/cp1.jpg";
+import navi from "../images/navi.jpg";
+import aerial from "../images/aerial.jpg";
 
 export default function HomePage() {
   return (
@@ -21,8 +22,8 @@ export default function HomePage() {
       <HeroSection mainlogo={mainlogo} />
       <AboutSection background={plane1} />
       <CoreValueSection background={plane2} />
-      <WhyChooseUsSection background={cockpit} />
-      <CarouselCustomNavigation background={cockpit} />
+      <WhyChooseUsSection background={navi} />
+      <CarouselCustomNavigation background={aerial} />
       <Footer mainlogo={mainlogo} />
     </div>
   );
