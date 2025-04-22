@@ -5,7 +5,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
   return (
     <section
       id="home"
-      className="min-h-screen pt-28 pb-20 px-6 flex flex-col items-center justify-center bg-white text-center"
+      className="min-h-screen pt-20 sm:pt-28 pb-20 px-6 flex flex-col items-center justify-center bg-white text-center"
       style={{
         backgroundImage: `url(${cloud1})`,
         backgroundSize: "cover",
