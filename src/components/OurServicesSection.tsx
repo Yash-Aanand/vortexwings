@@ -119,7 +119,6 @@ export default function ServicesSection({
         <div className="bg-white rounded-2xl shadow-2xl p-10">
           <SectionTitle>Our Services</SectionTitle>
 
-          {/* Grid with staggered animation */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -132,22 +131,21 @@ export default function ServicesSection({
                 key={index}
                 variants={cardVariants}
                 whileHover={{
-                  scale: 1.03,
-                  rotateX: 3,
-                  rotateY: -3,
-                  boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
+                  scale: 1.02,
+                  boxShadow: "5px 12px 25px rgba(2, 2, 80, 0.7)", // dark navy blue
                 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative border-l-4 border-golden bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="relative border-l-4 border-golden bg-white p-6 rounded-xl  " //shadow-sm transition-all duration-300
               >
                 <div className="absolute -top-5 left-4 bg-yellow-100 text-yellow-800 rounded-full p-2 shadow-md">
                   <service.icon className="h-6 w-6" />
                 </div>
 
                 <div className="pl-2 pt-4">
-                  <h3 className="text-xl font-bold text-navy-blue mb-1">
+                  <h3 className="text-lg font-bold text-navy-blue mb-1 uppercase">
                     {service.title}
                   </h3>
+
                   <p className="text-md text-yellow-700 font-medium mb-2 italic">
                     {service.tagline}
                   </p>

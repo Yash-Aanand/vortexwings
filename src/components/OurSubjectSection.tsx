@@ -131,11 +131,11 @@ export default function ServicesSection({
                 key={index}
                 variants={cardVariants}
                 whileHover={{
-                  scale: 1.015,
-                  boxShadow: "0px 12px 30px rgba(0, 0, 0, 0.08)",
+                  scale: 1.02,
+                  boxShadow: "5px 12px 25px rgba(2, 2, 80, 0.7)", // dark navy blue
                 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative border-l-4 border-navy-blue bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="relative border-l-4 border-navy-blue bg-white p-6 rounded-xl shadow-sm"
               >
                 <div className="absolute -top-5 left-4 bg-yellow-100 text-yellow-800 rounded-full p-2 shadow-md">
                   <service.icon className="h-6 w-6" />
