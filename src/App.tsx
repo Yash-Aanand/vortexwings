@@ -6,6 +6,7 @@ import ServicesSection from "./components/OurServicesSection";
 import OurSubjucts from "./components/OurSubjectSection";
 import CoreValueSection from "./components/CoreValueSection";
 import PilotJourneySection from "./components/PilotJourneySection";
+import CarouselCustomNavigation from "./components/CarouselSection"; // adjust path if needed
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
@@ -45,6 +46,9 @@ function App() {
 
       {/* Subjects Section */}
       <OurSubjucts background={cockpit3} />
+
+      {/* Carousel Section */}
+      <CarouselCustomNavigation background={cockpit} />
 
       {/* Contact Section */}
       <ContactSection background={cockpit2} />
