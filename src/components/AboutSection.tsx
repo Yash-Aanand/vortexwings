@@ -64,6 +64,7 @@ export default function AboutSection({ background }: { background: string }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <motion.div
+              id="vision"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -86,7 +87,10 @@ export default function AboutSection({ background }: { background: string }) {
               viewport={{ once: true }}
               className="bg-golden/5 rounded-xl p-8 border-r-4 border-golden hover:shadow-xl transition-shadow duration-300"
             >
-              <h3 className="text-2xl font-bold text-navy-blue mb-4">
+              <h3
+                id="mission"
+                className="text-2xl font-bold text-navy-blue mb-4"
+              >
                 Our Mission
               </h3>
               <ul className="space-y-4">

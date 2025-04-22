@@ -36,14 +36,15 @@ function App() {
 
       {/* Core Values Section */}
       <CoreValueSection background={plane2} />
+
+      {/* Pilot Journey Section */}
+      <PilotJourneySection background={plane1} />
+
       {/* Services Section */}
       <ServicesSection background={cockpit} />
 
       {/* Subjects Section */}
       <OurSubjucts background={cockpit3} />
-
-      {/* Pilot Journey Section */}
-      <PilotJourneySection background={plane1} />
 
       {/* Contact Section */}
       <ContactSection background={cockpit2} />

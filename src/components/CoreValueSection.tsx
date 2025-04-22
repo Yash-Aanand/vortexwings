@@ -67,18 +67,17 @@ const CoreValue = ({
 }) => (
   <motion.div
     variants={cardVariants}
+    className="bg-white rounded-2xl p-8 border border-gray-200"
     whileHover={{
       rotateX: 3,
       rotateY: -3,
       scale: 1.02,
-      boxShadow: "5px 12px 12px rgba(2, 2, 80, 0.3)", // dark navy blue,
+      boxShadow: "5px 12px 12px rgba(2, 2, 80, 0.4)", // dark navy blue,
     }}
     transition={{
-      type: "spring",
-      stiffness: 260,
-      damping: 20,
+      type: "easeInOut",
+      duration: 0.4,
     }}
-    className="bg-white rounded-2xl p-8 border border-gray-200 shadow-md"
     style={{
       transformStyle: "preserve-3d",
       perspective: 1000,

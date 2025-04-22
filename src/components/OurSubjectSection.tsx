@@ -135,7 +135,7 @@ export default function ServicesSection({
                   boxShadow: "5px 12px 25px rgba(2, 2, 80, 0.7)", // dark navy blue
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative border-l-4 border-navy-blue bg-white p-6 rounded-xl shadow-sm"
+                className="relative border-l-4 border-navy-blue bg-white p-6 rounded-xl "
               >
                 <div className="absolute -top-5 left-4 bg-yellow-100 text-yellow-800 rounded-full p-2 shadow-md">
                   <service.icon className="h-6 w-6" />

@@ -1,15 +1,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plane, Menu, X } from "lucide-react";
+import { Plane, Menu, X, ChevronDown } from "lucide-react"; // Optional: Chevron for dropdown indication
 import logo from "../images/vortexlogotr.png";
 
-const sections = ["home", "about", "services", "contact"];
+// Navigation items with a submenu under "About Us"
+const sections = [
+  { id: "home", label: "Home" },
+  {
+    id: "about",
+    label: "About Us",
+    submenu: [
+      { id: "about", label: "Our Story" },
+      { id: "vision", label: "Our Vision/Mission" },
+      { id: "core-values", label: "Core Values" },
+      { id: "pilot-journey", label: "Pilot Journey" },
+    ],
+  },
+  { id: "services", label: "Services" },
+  { id: "contact", label: "Contact" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null); // mobile dropdown
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
+    setOpenDropdown(null); // close dropdown if any
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
@@ -31,13 +48,12 @@ const Navbar = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          {/* <Plane className="h-10 w-10 text-navy-blue transform group-hover:rotate-12 transition-transform duration-300" /> */}
           <span className="text-3xl font-bold text-navy-blue group-hover:text-navy-blue/80 transition-colors duration-300">
             Vortex Wings
           </span>
         </motion.button>
 
-        {/* Desktop Logo */}
+        {/* Centered Logo */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block z-10">
           <img
             src={logo}
@@ -49,19 +65,35 @@ const Navbar = () => {
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center space-x-8">
           {sections.map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollToSection(item)}
-              className="relative group capitalize"
-            >
-              <span className="text-gray-600 group-hover:text-navy-blue transition-colors duration-300">
-                {item.replace("-", " ")}
-              </span>
-              <motion.div
-                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-navy-blue origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                initial={false}
-              />
-            </button>
+            <div key={item.id} className="relative group">
+              <button
+                onClick={() => scrollToSection(item.id)}
+                className="relative group capitalize"
+              >
+                <span className="text-gray-600 group-hover:text-navy-blue transition-colors duration-300">
+                  {item.label}
+                </span>
+                <motion.div
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-navy-blue origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                  initial={false}
+                />
+              </button>
+
+              {/* Dropdown for "About Us" */}
+              {item.submenu && (
+                <div className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 scale-y-0 group-hover:scale-y-100 transform origin-top transition-all duration-200 z-50">
+                  {item.submenu.map((sub) => (
+                    <button
+                      key={sub.id}
+                      onClick={() => scrollToSection(sub.id)}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-navy-blue/10 hover:text-navy-blue transition-all"
+                    >
+                      {sub.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
@@ -84,20 +116,65 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg overflow-hidden z-40"
           >
-            <div className="flex flex-col items-center py-4 space-y-4">
-              {sections.map((item) => (
-                <motion.button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="text-gray-600 hover:text-navy-blue transition-colors duration-300 capitalize w-full text-center py-2 px-4"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {item.replace("-", " ")}
-                </motion.button>
-              ))}
+            <div className="flex flex-col items-center py-4 space-y-2 px-4">
+              {sections.map((item) => {
+                if (item.submenu) {
+                  const isOpenDropdown = openDropdown === item.id;
+                  return (
+                    <div key={item.id} className="w-full">
+                      <button
+                        onClick={() =>
+                          setOpenDropdown(isOpenDropdown ? null : item.id)
+                        }
+                        className="flex justify-between items-center w-full text-gray-600 hover:text-navy-blue transition-colors duration-300 capitalize py-2"
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`ml-2 transition-transform duration-200 ${
+                            isOpenDropdown ? "rotate-180" : ""
+                          }`}
+                          size={18}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {isOpenDropdown && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="pl-4"
+                          >
+                            {item.submenu.map((sub) => (
+                              <button
+                                key={sub.id}
+                                onClick={() => scrollToSection(sub.id)}
+                                className="block w-full text-left text-gray-600 hover:text-navy-blue py-1 text-md"
+                              >
+                                {sub.label}
+                              </button>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <motion.button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-gray-600 hover:text-navy-blue transition-colors duration-300 capitalize w-full text-left py-2"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {item.label}
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
         )}

@@ -98,7 +98,7 @@ export default function PathToCockpitTimeline({
 
   return (
     <section
-      id="path-to-cockpit"
+      id="pilot-journey"
       className="py-24 px-4 sm:px-8"
       style={{
         backgroundImage: `url(${background})`,
