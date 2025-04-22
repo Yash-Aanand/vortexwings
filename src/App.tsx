@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 import mainlogo from "./images/vortexlogotr.png";
 
-import cockpit from "./images/cockpit.jpg";
+import cockpit from "./images/cp1.jpg";
 import plane2 from "./images/plane2.jpg";
 import plane1 from "./images/plane1.jpg";
 import cockpit2 from "./images/cockpit2.jpg";
