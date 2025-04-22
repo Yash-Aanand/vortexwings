@@ -17,7 +17,7 @@ const sections = [
     ],
   },
   {
-    id: "flight-deck",
+    id: "pilot-journey",
     label: "Flight Deck",
     submenu: [
       { id: "pilot-journey", label: "Pilot Roadmap" },
@@ -70,32 +70,44 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
           {sections.map((item) => (
             <div key={item.id} className="relative group">
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className="relative group capitalize"
-              >
-                <span className="text-gray-600 font-bold group-hover:text-navy-blue uppercase transition-colors duration-300">
-                  {item.label}
-                </span>
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-navy-blue origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                  initial={false}
-                />
-              </button>
+              {/* Highlight CONTACT US as a special button */}
+              {item.id === "contact" ? (
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className="uppercase font-extrabold text-sm px-3 py-2 md:px-5 md:py-3 rounded-full bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-navy-blue border-2 border-navy-blue shadow-lg hover:scale-105 hover:shadow-[0_0_12px_rgba(255,223,0,0.8)] transition-all duration-300 ring-1 ring-offset-2 ring-yellow-200 hover:ring-4 tracking-wide"
+                >
+                  ✉ Contact Us
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="relative group capitalize"
+                  >
+                    <span className="text-gray-600 font-bold group-hover:text-navy-blue uppercase transition-colors duration-300">
+                      {item.label}
+                    </span>
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-navy-blue origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                      initial={false}
+                    />
+                  </button>
 
-              {/* Dropdown for "About Us" */}
-              {item.submenu && (
-                <div className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 scale-y-0 group-hover:scale-y-100 transform origin-top transition-all duration-200 z-50">
-                  {item.submenu.map((sub) => (
-                    <button
-                      key={sub.id}
-                      onClick={() => scrollToSection(sub.id)}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 font-bold uppercase hover:bg-navy-blue/10 hover:text-navy-blue transition-all"
-                    >
-                      {sub.label}
-                    </button>
-                  ))}
-                </div>
+                  {/* Dropdown if available */}
+                  {item.submenu && (
+                    <div className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 scale-y-0 group-hover:scale-y-100 transform origin-top transition-all duration-200 z-50">
+                      {item.submenu.map((sub) => (
+                        <button
+                          key={sub.id}
+                          onClick={() => scrollToSection(sub.id)}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-700 font-bold uppercase hover:bg-navy-blue/10 hover:text-navy-blue transition-all"
+                        >
+                          {sub.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           ))}
