@@ -68,10 +68,10 @@ const CoreValue = ({
   <motion.div
     variants={cardVariants}
     whileHover={{
-      scale: 1.03,
       rotateX: 3,
       rotateY: -3,
-      boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
+      scale: 1.02,
+      boxShadow: "5px 12px 12px rgba(2, 2, 80, 0.3)", // dark navy blue,
     }}
     transition={{
       type: "spring",
