@@ -103,10 +103,10 @@ export default function ContactSection({ background }: { background: string }) {
                 </div>
                 <div>
                   <a
-                    href="tel:+91 7022906489"
+                    href="tel:+91 7022169478"
                     className="text-white/80 hover:underline"
                   >
-                    +91 7022906489
+                    +91 7022169478
                   </a>
                 </div>
               </div>
