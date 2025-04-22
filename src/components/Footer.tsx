@@ -27,9 +27,9 @@ export default function Footer({ mainlogo }: FooterProps) {
 
   return (
     <footer className="bg-zinc-900 text-white py-12 px-8 font-[Times_New_Roman]">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-sm justify-around">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 [@media(min-width:380px)]:grid-cols-2 md:grid-cols-4 gap-10 text-sm place-items-center md:place-items-start">
         {/* Logo and About */}
-        <div className="flex flex-col items-center md:items-start w-[162px]">
+        <div className="flex flex-col items-center  w-[162px]">
           <motion.img
             src={mainlogo}
             alt="Vortex Wings Logo"
