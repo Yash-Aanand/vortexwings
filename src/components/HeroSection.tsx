@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import cloud1 from "../images/cloud1.jpg";
 
 export default function HeroSection({ mainlogo }: { mainlogo: string }) {
+  const navigate = useNavigate();
+
   return (
     <section
       id="home"
@@ -66,11 +69,10 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         className="flex flex-wrap justify-center gap-4"
       >
         <a
-          onClick={() =>
-            document
-              .querySelector("#pilot-journey")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
+          onClick={() => {
+            navigate("/flight-deck");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300 cursor-pointer"
         >
           Learn More
@@ -90,11 +92,10 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         </a> */}
 
         <a
-          onClick={() =>
-            document
-              .querySelector("#contact")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
+          onClick={() => {
+            navigate("/contact");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="uppercase font-bold bg-yellow-400 text-navy-blue text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-yellow-300 transition duration-300 cursor-pointer"
         >
           Book a Demo

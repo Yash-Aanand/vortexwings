@@ -1,66 +1,15 @@
-import Navbar from "./components/Navbar";
-
-import HeroSection from "./components/HeroSection";
-import AboutSection from "./components/AboutSection";
-import ServicesSection from "./components/OurServicesSection";
-import OurSubjucts from "./components/OurSubjectSection";
-import CoreValueSection from "./components/CoreValueSection";
-import WhyChooseUsSection from "./components/WhyChooseUs";
-
-import PilotJourneySection from "./components/PilotJourneySection";
-import CarouselCustomNavigation from "./components/CarouselSection"; // adjust path if needed
-import ContactSection from "./components/ContactSection";
-import Footer from "./components/Footer";
-
-import mainlogo from "./images/vortexlogotr.png";
-
-import cockpit from "./images/cp1.jpg";
-import plane2 from "./images/plane2.jpg";
-import plane1 from "./images/plane1.jpg";
-import cockpit2 from "./images/cockpit2.jpg";
-import cockpit3 from "./images/cockpit3.jpg";
-
-// import fractalbg1 from "./images/fractalbg1.jpg";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import FlightDeckPage from "./pages/FlightDeckPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
-    <div
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100"
-      style={{ fontFamily: "Times New Roman, serif" }}
-    >
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Home Section */}
-      <HeroSection mainlogo={mainlogo} />
-
-      {/* About Section */}
-      <AboutSection background={plane1} />
-
-      {/* Core Values Section */}
-      <CoreValueSection background={plane2} />
-
-      {/* Why Choose Us Section */}
-      <WhyChooseUsSection background={cockpit} />
-
-      {/* Pilot Journey Section */}
-      <PilotJourneySection background={plane1} />
-
-      {/* Services Section */}
-      <ServicesSection background={cockpit} />
-
-      {/* Subjects Section */}
-      <OurSubjucts background={cockpit3} />
-
-      {/* Carousel Section */}
-      <CarouselCustomNavigation background={cockpit} />
-
-      {/* Contact Section */}
-      <ContactSection background={cockpit2} />
-
-      {/* Footer Section */}
-      <Footer mainlogo={mainlogo} />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/flight-deck" element={<FlightDeckPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
   );
 }
 

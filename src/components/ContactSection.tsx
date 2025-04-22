@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import SectionTitle from "./sectionTitle";
 import cloud1 from "../images/cloud1.jpg";
 

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   BookOpen,
   FileText,
@@ -83,6 +84,7 @@ export default function PathToCockpitTimeline({
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerHeight, setContainerHeight] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateHeight = () => {
@@ -187,9 +189,8 @@ export default function PathToCockpitTimeline({
         >
           <button
             onClick={() => {
-              document
-                .querySelector("#contact")
-                ?.scrollIntoView({ behavior: "smooth" });
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate("/contact");
             }}
             className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300"
           >
