@@ -82,7 +82,7 @@ export default function ContactSection({ background }: { background: string }) {
           <div className="mt-6">
             <div className="inline-block bg-black/30 backdrop-blur-lg px-4 py-4 rounded-lg border border-white/20 shadow-md mx-auto space-y-3 text-white text-xs md:text-base w-full max-w-sm md:max-w-md">
               {/* Admissions */}
-              <div className="flex items-center space-x-2 md:space-x-3">
+              {/* <div className="flex items-center space-x-2 md:space-x-3">
                 <div className="bg-white/20 p-1.5 md:p-2 rounded-full">
                   <Phone className="h-4 w-4 md:h-6 md:w-6 text-white" />
                 </div>
@@ -94,7 +94,7 @@ export default function ContactSection({ background }: { background: string }) {
                     +91 9327157106
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               {/* WhatsApp */}
               <div className="flex items-center space-x-2 md:space-x-3">
@@ -112,7 +112,7 @@ export default function ContactSection({ background }: { background: string }) {
               </div>
 
               {/* Office */}
-              <div className="flex items-center space-x-2 md:space-x-3">
+              {/* <div className="flex items-center space-x-2 md:space-x-3">
                 <div className="bg-white/20 p-1.5 md:p-2 rounded-full">
                   <Phone className="h-4 w-4 md:h-6 md:w-6 text-white" />
                 </div>
@@ -124,7 +124,7 @@ export default function ContactSection({ background }: { background: string }) {
                     +91 9597191209
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               {/* Email */}
               <div className="flex items-center space-x-2 md:space-x-3 pt-2 border-t border-white/20">
