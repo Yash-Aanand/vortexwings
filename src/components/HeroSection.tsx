@@ -29,7 +29,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         />
       </motion.div>
 
-      {/* Title (Original Text) */}
+      {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,16 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         Vortex Wings
       </motion.h1>
 
-      {/* Subtitle (Original Text) */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="text-3xl md:text-5xl font-bold text-navy-blue mb-6 "
+      >
+        Aviation Institute
+      </motion.div>
+
+      {/* Subtitle */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -49,21 +58,54 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         Lift Your Confidence. Command the Skies
       </motion.p>
 
-      {/* CTA */}
-      <motion.a
-        href="#services"
-        onClick={(e) => {
-          e.preventDefault();
-          document
-            .querySelector("#services")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
-        className="bg-navy-blue text-white font-semibold text-base px-8 py-4 rounded-full shadow-md hover:bg-navy-blue/90 transition duration-300"
+      {/* Button Group */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="flex flex-wrap justify-center gap-4"
       >
-        Explore Our Services
-      </motion.a>
+        <a
+          href="#services"
+          onClick={(e) => {
+            e.preventDefault();
+            document
+              .querySelector("#services")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300"
+        >
+          Explore Our Services
+        </a>
+
+        <a
+          href="#about"
+          onClick={(e) => {
+            e.preventDefault();
+            document
+              .querySelector("#about")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="uppercase font-bold text-navy-blue bg-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow 
+                     border-l-4 border-r-4 border-l-navy-blue border-r-yellow-400
+                    hover:bg-blue-100 transition duration-300"
+        >
+          Learn More
+        </a>
+
+        <a
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            document
+              .querySelector("#contact")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="uppercase font-bold bg-yellow-400 text-navy-blue text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-yellow-300 transition duration-300"
+        >
+          Book a Demo
+        </a>
+      </motion.div>
     </section>
   );
 }
