@@ -7,7 +7,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/vortexwings">
+    <BrowserRouter basename="/vortexwings/">
       <ThemeProvider>
         <App />
       </ThemeProvider>
