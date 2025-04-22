@@ -99,7 +99,7 @@ export default function ServicesSection({
 }) {
   return (
     <section
-      id="services"
+      id="subjects"
       className="min-h-screen py-24 px-6"
       style={{
         backgroundImage: `url(${background})`,

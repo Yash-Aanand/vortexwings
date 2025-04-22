@@ -17,6 +17,7 @@ const sections = [
     ],
   },
   { id: "services", label: "Services" },
+  { id: "subjects", label: "Subjects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -48,19 +49,15 @@ const Navbar = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
+          <img
+            src={logo}
+            alt="Vortex Wings Logo"
+            className="h-10 w-auto drop-shadow-sm hidden md:block" // 👈 hides on mobile
+          />
           <span className="text-3xl font-bold text-navy-blue group-hover:text-navy-blue/80 transition-colors duration-300">
             Vortex Wings
           </span>
         </motion.button>
-
-        {/* Centered Logo */}
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block z-10">
-          <img
-            src={logo}
-            alt="Vortex Wings Logo"
-            className="h-14 w-auto md:h-16 drop-shadow-sm"
-          />
-        </div>
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center space-x-8">
