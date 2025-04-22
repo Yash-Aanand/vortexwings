@@ -6,10 +6,16 @@ import {
   Plane,
   Briefcase,
   ClipboardCheck,
+  Stethoscope,
 } from "lucide-react";
 import SectionTitle from "./sectionTitle";
 
 const cockpitSteps = [
+  {
+    title: "Clear Medical Assessment",
+    icon: <Stethoscope className="w-6 h-6 text-navy-blue" />,
+  },
+
   {
     title: "Enroll & start classes",
     icon: <BookOpen className="w-6 h-6 text-navy-blue" />,
