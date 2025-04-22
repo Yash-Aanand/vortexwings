@@ -5,6 +5,8 @@ import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/OurServicesSection";
 import OurSubjucts from "./components/OurSubjectSection";
 import CoreValueSection from "./components/CoreValueSection";
+import WhyChooseUsSection from "./components/WhyChooseUs";
+
 import PilotJourneySection from "./components/PilotJourneySection";
 import CarouselCustomNavigation from "./components/CarouselSection"; // adjust path if needed
 import ContactSection from "./components/ContactSection";
@@ -37,6 +39,9 @@ function App() {
 
       {/* Core Values Section */}
       <CoreValueSection background={plane2} />
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUsSection background={cockpit} />
 
       {/* Pilot Journey Section */}
       <PilotJourneySection background={plane1} />

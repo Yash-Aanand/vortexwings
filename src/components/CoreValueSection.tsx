@@ -88,7 +88,9 @@ const CoreValue = ({
         <Icon className="w-6 h-6 text-yellow-700" />
       </div>
       <div>
-        <h4 className="text-lg font-semibold text-navy-blue">{title}</h4>
+        <h4 className="text-lg font-semibold uppercase text-navy-blue">
+          {title}
+        </h4>
         <p className="text-md text-gray-700">{description}</p>
       </div>
     </div>

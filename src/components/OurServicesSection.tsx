@@ -117,7 +117,7 @@ export default function ServicesSection({
         className="max-w-7xl mx-auto"
       >
         <div className="bg-white rounded-2xl shadow-2xl p-10">
-          <SectionTitle>Our Services</SectionTitle>
+          <SectionTitle>What We Offer</SectionTitle>
 
           <motion.div
             variants={containerVariants}

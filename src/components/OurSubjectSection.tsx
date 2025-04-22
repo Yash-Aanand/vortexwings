@@ -116,7 +116,7 @@ export default function ServicesSection({
         className="max-w-7xl mx-auto"
       >
         <div className="bg-white rounded-2xl shadow-2xl p-10">
-          <SectionTitle>Subjects We Teach</SectionTitle>
+          <SectionTitle>Ground School Curriculum</SectionTitle>
 
           {/* Grid with staggered fade-in */}
           <motion.div

@@ -176,6 +176,26 @@ export default function PathToCockpitTimeline({
             ))}
           </div>
         </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: STEP_DELAY * cockpitSteps.length + 0.2 }}
+          className="mt-16 text-center"
+        >
+          <button
+            onClick={() => {
+              document
+                .querySelector("#contact")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300"
+          >
+            Start Your Journey Today
+          </button>
+        </motion.div>
       </div>
     </section>
   );

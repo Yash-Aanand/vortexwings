@@ -68,15 +68,15 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         <a
           onClick={() =>
             document
-              .querySelector("#services")
+              .querySelector("#pilot-journey")
               ?.scrollIntoView({ behavior: "smooth" })
           }
           className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300 cursor-pointer"
         >
-          Explore Our Services
+          Learn More
         </a>
 
-        <a
+        {/* <a
           onClick={() =>
             document
               .querySelector("#about")
@@ -87,7 +87,7 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
              hover:bg-blue-100 transition duration-300 cursor-pointer"
         >
           Learn More
-        </a>
+        </a> */}
 
         <a
           onClick={() =>
