@@ -66,42 +66,36 @@ export default function HeroSection({ mainlogo }: { mainlogo: string }) {
         className="flex flex-wrap justify-center gap-4"
       >
         <a
-          href="#services"
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() =>
             document
               .querySelector("#services")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300"
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="uppercase font-bold bg-navy-blue text-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-navy-blue/90 transition duration-300 cursor-pointer"
         >
           Explore Our Services
         </a>
 
         <a
-          href="#about"
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() =>
             document
               .querySelector("#about")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
           className="uppercase font-bold text-navy-blue bg-white text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow 
-                     border-l-4 border-r-4 border-l-navy-blue border-r-yellow-400
-                    hover:bg-blue-100 transition duration-300"
+             border-l-4 border-r-4 border-l-navy-blue border-r-yellow-400
+             hover:bg-blue-100 transition duration-300 cursor-pointer"
         >
           Learn More
         </a>
 
         <a
-          href="#contact"
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() =>
             document
               .querySelector("#contact")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="uppercase font-bold bg-yellow-400 text-navy-blue text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-yellow-300 transition duration-300"
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="uppercase font-bold bg-yellow-400 text-navy-blue text-sm sm:text-base px-4 py-2 md:px-8 md:py-4 rounded-full shadow hover:bg-yellow-300 transition duration-300 cursor-pointer"
         >
           Book a Demo
         </a>
