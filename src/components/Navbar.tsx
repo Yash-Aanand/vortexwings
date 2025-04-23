@@ -9,6 +9,7 @@ const sections = [
   {
     label: "About Us",
     path: "/",
+    anchor: "about",
     submenu: [
       { label: "Our Story", anchor: "about" },
       { label: "Our Vision/Mission", anchor: "vision" },

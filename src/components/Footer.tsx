@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, Instagram, Linkedin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface FooterProps {
