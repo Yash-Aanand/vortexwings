@@ -29,7 +29,7 @@ export default function Footer({ mainlogo }: FooterProps) {
     <footer className="bg-zinc-900 text-white py-12 px-8 font-[Times_New_Roman]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 [@media(min-width:450px)]:grid-cols-2 [@media(min-width:768px)]:grid-cols-4 gap-10 text-sm place-items-center md:place-items-start">
         {/* Logo and About */}
-        <div className="flex flex-col items-center  w-[220px] [@media(min-width:450px)]:w-[162px]">
+        <div className="flex flex-col items-center  w-[220px] [@media(min-width:450px)]:w-[179px]">
           <motion.img
             src={mainlogo}
             alt="Vortex Wings Logo"
@@ -39,8 +39,8 @@ export default function Footer({ mainlogo }: FooterProps) {
             viewport={{ once: true }}
           />
           <p className="text-gray-400 text-justify">
-            Vortex Wings is dedicated to shaping the future of aviation with
-            excellence, integrity, and commitment.
+            At Vortex Wings, we don’t just teach aviation — we build confident,
+            skilled aviators ready to command the skies.
           </p>
         </div>
 
