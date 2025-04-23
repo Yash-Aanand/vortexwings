@@ -91,11 +91,11 @@ export default function Footer({ mainlogo }: FooterProps) {
               <span className="font-semibold">vortexwingsinst@gmail.com</span>
             </a>
             <a
-              href="tel:+917022169478"
+              href="tel:+916366790320"
               className="flex items-center gap-2 hover:text-white transition-all hover:underline"
             >
               <Phone size={18} />
-              <span className="font-semibold">+91 7022169478</span>
+              <span className="font-semibold">+91 6366790320</span>
             </a>
           </div>
         </div>
