@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../images/vortexlogotr.png";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 const sections = [
   { label: "Home", path: "/", anchor: "home" },
@@ -55,7 +57,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md shadow-lg text-gray-800 py-4 px-6 fixed w-full top-0 z-50">
+    <nav className="bg-white backdrop-blur-md shadow-lg text-gray-800 py-4 px-6 fixed w-full top-0 z-50">
       <div className="mx-auto flex justify-between items-center">
         <motion.button
           onClick={() => goToPage("/", "home")}
