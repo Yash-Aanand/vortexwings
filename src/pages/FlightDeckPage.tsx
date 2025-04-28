@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 import mainlogo from "../images/vortexlogotr.png";
 import plane1 from "../images/plane1.jpg";
-import cockpit from "../images/cp1.jpg";
+import cockpit from "../images/wcu1.jpg";
 import cockpit3 from "../images/cockpit3.jpg";
 
 export default function FlightDeckPage() {
