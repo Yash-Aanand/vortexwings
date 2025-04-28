@@ -59,7 +59,7 @@ export default function EnquiryForm({ background }: { background: string }) {
     };
 
     emailjs
-      .send("service_q65paar", "template_dh1w52d", data, "tmmH3AKyhN6zNyfgB")
+      .send("service_e85z9kv", "template_o98pok7", data, "HYPHiGDRPLjBWpwKH")
       .then(() => {
         setStatus("success");
         formRef.current?.reset();
