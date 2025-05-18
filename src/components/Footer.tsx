@@ -74,6 +74,14 @@ export default function Footer({ mainlogo }: FooterProps) {
             >
               Contact Us
             </button>
+            <button
+              onClick={() =>
+                window.open("https://web.classplusapp.com/login", "_blank")
+              }
+              className="text-left text-gray-400 hover:text-white font-semibold"
+            >
+              Student Portal
+            </button>
           </div>
         </div>
 
