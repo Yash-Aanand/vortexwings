@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../images/vortexlogotr.png";
-import emailjs from "@emailjs/browser";
-import { useRef } from "react";
 
 const sections = [
   { label: "Home", path: "/", anchor: "home" },
@@ -29,6 +27,11 @@ const sections = [
     ],
   },
   { label: "Contact Us", path: "/contact" },
+  {
+    label: "Student Portal",
+    path: "https://web.classplusapp.com/login",
+    type: "external",
+  },
 ];
 
 const Navbar = () => {
@@ -50,7 +53,6 @@ const Navbar = () => {
           window.scrollTo({ top: y, behavior: "smooth" });
         }
       } else {
-        // Scroll to top if no anchorId is specified
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }, 100);
@@ -75,16 +77,18 @@ const Navbar = () => {
           </span>
         </motion.button>
 
-        <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+        <div className="hidden lg:flex items-center space-x-4 lg:space-x-8">
           {sections.map((item) => (
             <div key={item.label} className="relative group">
-              {item.label === "Contact Us" ? (
-                <button
-                  onClick={() => goToPage(item.path)}
+              {item.type === "external" ? (
+                <a
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="uppercase font-bold text-sm px-4 py-2 md:px-5 md:py-3 rounded-full bg-yellow-300 text-navy-blue border border-navy-blue shadow-md hover:bg-yellow-200 hover:shadow-lg transition-all duration-200 tracking-wide"
                 >
-                  ✉ Contact Us
-                </button>
+                  🎓 {item.label}
+                </a>
               ) : (
                 <>
                   <button
@@ -120,7 +124,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden text-navy-blue z-50"
+          className="lg:hidden text-navy-blue z-50"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -135,10 +139,24 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg overflow-hidden z-40"
+            className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg overflow-hidden z-40"
           >
             <div className="flex flex-col items-center py-4 space-y-2 px-4">
               {sections.map((item) => {
+                if (item.type === "external") {
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="uppercase font-bold text-sm px-4 py-2 w-full text-center rounded-full bg-yellow-300 text-navy-blue border border-navy-blue shadow-md hover:bg-yellow-200 hover:shadow-lg transition-all duration-200 tracking-wide"
+                    >
+                      🎓 {item.label}
+                    </a>
+                  );
+                }
+
                 if (item.submenu) {
                   const isOpenDropdown = openDropdown === item.label;
                   return (
